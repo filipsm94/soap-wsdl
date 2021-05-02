@@ -64,8 +64,8 @@ function setPets(e) {
 }
 
 function getUsers() {
-
-    const raw = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <com:getUsers/>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
+    console.log('rrr');
+    const raw = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <ws:getUsers/>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
 
     const requestOptions = {
         method: 'POST',
@@ -123,7 +123,7 @@ function addUsers() {
     var requestOptions = {
         method: 'POST',
         headers: myHeaders,
-        body: raw,
+        body: raw1,
         redirect: 'follow'
     };
 

@@ -4,42 +4,52 @@
 </head>
 <body>
     <h1>Hola Toy Funcionando</h1>
+
+    <form novalidate>
+        
+    </form>
+
+    <button onclick="getPets()">Get Pets</button>
+    <button onclick="getUsers()">Get Users</button>
     <script type="text/javascript">
 
-        const strRequestSetUser = `
-                <?xml version="1.0" encoding="utf-8"?>
-                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://interfaces/">
-                <soapenv:Header/>
-                <soapenv:Body>
-                    <int:addUser>
-                        <arg0>
-                            <code>?</code>
-                            <firstName>?</firstName>
-                            <lastName>?</lastName>
-                            <mobile>?</mobile>
-                            <direction>?</direction>
-                        </arg0>
-                    </int:addUser>
-                </soapenv:Body>
-                </soapenv:Envelope>`;
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "text/xml");
 
-        const strRequestGetUser = `<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://interfaces/"><soapenv:Header/><soapenv:Body><int:getUsers/></soapenv:Body></soapenv:Envelope>`;
+    function getPets(){
 
-        var data = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:int=\"http://interfaces/\">\r\n<soapenv:Header/>\r\n<soapenv:Body>\r\n    <int:getUsers/>\r\n</soapenv:Body>\r\n</soapenv:Envelope>";
+        var raw = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n	<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n	   <soapenv:Header/>\r\n	   <soapenv:Body>\r\n	      <com:getPet/>\r\n	   </soapenv:Body>\r\n	</soapenv:Envelope>";
 
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+        };
 
-xhr.addEventListener("readystatechange", function() {
-  if(this.readyState === 4) {
-    console.log(this.responseText);
-  }
-});
+        fetch("http://localhost:8080/SOAPWS/PetsWs", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
 
-xhr.open("POST", "http://localhost:8084/WS/Users");
-xhr.setRequestHeader("Content-Type", "text/xml");
+    function getUsers(){
 
-xhr.send(data);
+        var raw = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <com:getUsers/>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
+
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+        };
+
+        fetch("http://localhost:8080/SOAPWS/UserWs", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
+        
     </script>
 </body>
 </html>

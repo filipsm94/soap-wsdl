@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="text-center">Servicios Soap</h1>
         <div class="row">
-            <div class="col-sm card">
+            <div class="col-sm card p-4">
                 <form novalidate>
                     <h3 class="text-center">Crear Usuario</h3>
                     <div class="mb-3">
@@ -27,7 +27,7 @@
                         
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Direccion</label>
+                        <label for="exampleFormControlTextarea1" class="form-label">Dirección</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese la direccion">
                     </div>
                     <div class="mb-3">
@@ -39,7 +39,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-sm card">
+            <div class="col-sm card p-4">
                 <form novalidate>
                     <h3 class="text-center">Crear Mascota</h3>
                     <div class="mb-3">
@@ -52,11 +52,19 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Tipo</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese el tipo">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Seleccione una opción</option>
+                            <option value="cat">gato</option>
+                            <option value="dog">perro</option>
+                          </select>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Genero</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese el genero">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Seleccione una opción</option>
+                            <option value="female">hembra</option>
+                            <option value="male">macho</option>
+                          </select>
                     </div>
                     <div class="col-auto">
                         <button type="submit" class="btn btn-primary mb-3">Añadir Mascota</button>

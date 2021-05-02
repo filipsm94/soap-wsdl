@@ -14,27 +14,32 @@
                 <form novalidate>
                     <h3 class="text-center">Crear Usuario</h3>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label"></label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                        <label for="exampleFormControlInput1" class="form-label">codigo</label>
+                        <input type="text" class="form-control" id="idCodUser"
                             placeholder="Ingrese">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                        <label for="exampleFormControlTextarea1" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="usuarioNombres"
                             placeholder="Ingrese">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                        <label for="exampleFormControlTextarea1" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="usuarioApellidos"
                             placeholder="Ingrese">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                        <label for="exampleFormControlTextarea1" class="form-label">Celular</label>
+                        <input type="text" class="form-control" id="usuarioCelular"
+                            placeholder="Ingrese">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Direccion</label>
+                        <input type="text" class="form-control" id="usuarioDireccion"
                             placeholder="Ingrese">
                     </div>
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-3">Añadir Usuario</button>
+                        <button type="button" class="btn btn-primary mb-3" onclick="addUsers()">Añadir Usuario</button>
                     </div>
                 </form>
             </div>

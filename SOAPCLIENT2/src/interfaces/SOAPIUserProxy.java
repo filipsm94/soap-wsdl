@@ -44,16 +44,16 @@ public class SOAPIUserProxy implements interfaces.SOAPIUser {
     return sOAPIUser;
   }
   
-  public void addUser(interfaces.User arg0) throws java.rmi.RemoteException{
-    if (sOAPIUser == null)
-      _initSOAPIUserProxy();
-    sOAPIUser.addUser(arg0);
-  }
-  
   public interfaces.User[] getUsers() throws java.rmi.RemoteException{
     if (sOAPIUser == null)
       _initSOAPIUserProxy();
     return sOAPIUser.getUsers();
+  }
+  
+  public void addUser(interfaces.User arg0) throws java.rmi.RemoteException{
+    if (sOAPIUser == null)
+      _initSOAPIUserProxy();
+    sOAPIUser.addUser(arg0);
   }
   
   

@@ -48,12 +48,19 @@ function getPets() {
 
 function setPets(e) { 
     e.preventDefault(); 
-    const raw = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <com:addPet>\r\n         <Pet>\r\n            <code>10</code>\r\n            <name>fiss</name>\r\n            <gender>male</gender>\r\n            <type>1</type>\r\n            <owner>1</owner>\r\n         </Pet>\r\n      </com:addPet>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
+    const raw = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <com:addPet>\r\n         <Pet>\r\n            <code>{0}</code>\r\n            <name>{1}</name>\r\n            <gender>{2}</gender>\r\n            <type>{3}</type>\r\n            <owner>{4}</owner>\r\n         </Pet>\r\n      </com:addPet>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
+    const raw1 = raw
+    .replace("{0}",document.getElementById("idCodPet").value)
+    .replace("{1}",document.getElementById("namePet").value)
+    .replace("{2}",document.getElementById("tipoPet").value)
+    .replace("{3}",document.getElementById("generoPet").value)
+    .replace("{4}",'1');
+    console.log(raw1);
 
     const requestOptions = {
     method: 'POST',
     headers: myHeaders,
-    body: raw,
+    body: raw1,
     redirect: 'follow'
     };
 

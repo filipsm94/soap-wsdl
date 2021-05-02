@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <title>SOAP Javascript Test</title>
+</head>
+<body>
+    <h1>Hola Toy Funcionando</h1>
+    <script type="text/javascript">
+
+        const strRequestSetUser = `
+                <?xml version="1.0" encoding="utf-8"?>
+                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://interfaces/">
+                <soapenv:Header/>
+                <soapenv:Body>
+                    <int:addUser>
+                        <arg0>
+                            <code>?</code>
+                            <firstName>?</firstName>
+                            <lastName>?</lastName>
+                            <mobile>?</mobile>
+                            <direction>?</direction>
+                        </arg0>
+                    </int:addUser>
+                </soapenv:Body>
+                </soapenv:Envelope>`;
+
+        const strRequestGetUser = `<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://interfaces/"><soapenv:Header/><soapenv:Body><int:getUsers/></soapenv:Body></soapenv:Envelope>`;
+
+        var data = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:int=\"http://interfaces/\">\r\n<soapenv:Header/>\r\n<soapenv:Body>\r\n    <int:getUsers/>\r\n</soapenv:Body>\r\n</soapenv:Envelope>";
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("POST", "http://localhost:8084/WS/Users");
+xhr.setRequestHeader("Content-Type", "text/xml");
+
+xhr.send(data);
+    </script>
+</body>
+</html>

@@ -8,6 +8,6 @@
 package interfaces;
 
 public interface SOAPIUser extends java.rmi.Remote {
-    public interfaces.User[] getUsers() throws java.rmi.RemoteException;
     public void addUser(interfaces.User arg0) throws java.rmi.RemoteException;
+    public interfaces.User[] getUsers() throws java.rmi.RemoteException;
 }

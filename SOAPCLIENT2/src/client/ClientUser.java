@@ -1,12 +1,10 @@
 package client;
 
 import implementacion.SOAPImplUserServiceLocator;
-import interfaces.Pet;
 import interfaces.SOAPIUser;
 import interfaces.User;
 
-public class UserClient {
-
+public class ClientUser {
 	public static void main(String[] args) {
 		SOAPImplUserServiceLocator locator = new SOAPImplUserServiceLocator();
 		
@@ -24,5 +22,4 @@ public class UserClient {
 			System.out.println(users[i].getCode() + " " + users[i].getFirstName() + " " + users[i].getLastName() + " " + users[i].getMobile() + " " + users[i].getDirection());
 		}
 	}
-
 }

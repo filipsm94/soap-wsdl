@@ -22,7 +22,7 @@ public class SOAPImplPetServiceLocator extends org.apache.axis.client.Service im
     }
 
     // Use to get a proxy class for SOAPImplPetPort
-    private java.lang.String SOAPImplPetPort_address = "http://localhost:8080/WS/Pets";
+    private java.lang.String SOAPImplPetPort_address = "http://localhost:8084/WS/Pets";
 
     public java.lang.String getSOAPImplPetPortAddress() {
         return SOAPImplPetPort_address;

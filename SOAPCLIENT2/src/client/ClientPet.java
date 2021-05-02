@@ -4,7 +4,7 @@ import implementacion.SOAPImplPetServiceLocator;
 import interfaces.Pet;
 import interfaces.SOAPIPet;
 
-public class PetClient {
+public class ClientPet {
 
 	public static void main(String[] args) {
 		SOAPImplPetServiceLocator locator = new SOAPImplPetServiceLocator();

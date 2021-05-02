@@ -22,7 +22,7 @@ public class SOAPImplUserServiceLocator extends org.apache.axis.client.Service i
     }
 
     // Use to get a proxy class for SOAPImplUserPort
-    private java.lang.String SOAPImplUserPort_address = "http://localhost:8080/WS/Users";
+    private java.lang.String SOAPImplUserPort_address = "http://localhost:8084/WS/Users";
 
     public java.lang.String getSOAPImplUserPortAddress() {
         return SOAPImplUserPort_address;

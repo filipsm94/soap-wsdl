@@ -10,24 +10,24 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static List<User> users = new ArrayList<>(Arrays.asList(
-			new User(1, "Luis", "Aldana", 1111, "direccion 1"),
-			new User(2, "Jonathan", "Garcia", 2222, "direccion 2"), 
-			new User(3, "Felipe", "Mesa", 3333, "direccion 3"), 
-			new User(4, "Cesar", "Yate", 4444, "direccion 4")
+			new User(1, "Luis", "Aldana", "3215649871", "direccion 1"),
+			new User(2, "Jonathan", "Garcia", "3215649872", "direccion 2"), 
+			new User(3, "Felipe", "Mesa", "3215649873", "direccion 3"), 
+			new User(4, "Cesar", "Yate", "3215649874", "direccion 4")
 			)
 		);
 
 	public int code;
 	public String firstName;
 	public String lastName;
-	public int mobile;
+	public String mobile;
 	public String direction;
 
 	public User() {
 		super();
 	}
 
-	public User(int code, String firstName, String lastName, int mobile, String direction) {
+	public User(int code, String firstName, String lastName, String mobile, String direction) {
 		super();
 		this.code = code;
 		this.firstName = firstName;
@@ -48,7 +48,7 @@ public class User implements Serializable {
 		this.lastName = lastName;
 	}
 	
-	public void setMobile(int mobile) {
+	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 	

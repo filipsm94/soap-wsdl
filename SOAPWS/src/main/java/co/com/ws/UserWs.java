@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.com;
+package co.com.ws;
 
 import co.com.clases.User;
 import java.util.List;

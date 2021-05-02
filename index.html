@@ -10,61 +10,62 @@
     <div class="container">
         <h1 class="text-center">Servicios Soap</h1>
         <div class="row">
-            <div class="col-sm card">
-                <form novalidate>
+            <div class="col-sm card p-4">
+                <form novalidate onsubmit="mySubmitFunction(event)">
                     <h3 class="text-center">Crear Usuario</h3>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">codigo</label>
-                        <input type="text" class="form-control" id="idCodUser"
-                            placeholder="Ingrese">
+
+                        <label for="exampleFormControlInput1" class="form-label">Codigo</label>
+                        <input type="text" class="form-control" id="idCodUser" placeholder="Ingrese el codigo">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="usuarioNombres"
-                            placeholder="Ingrese">
+                        <label for="exampleFormControlTextarea1" class="form-label">Nombre y Apellido</label>
+                        <div class="input-group">
+                            <span class="input-group-text">Ingrese</span>
+                            <input type="text" class="form-control" id="usuarioNombres" placeholder="Nombre">
+                            <input type="text" class="form-control" id="usuarioApellidos" placeholder="Apellido">
+                          </div>
+                        
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="usuarioApellidos"
-                            placeholder="Ingrese">
+                        <label for="exampleFormControlTextarea1" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="usuarioDireccion" placeholder="Ingrese la direccion">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Celular</label>
-                        <input type="text" class="form-control" id="usuarioCelular"
-                            placeholder="Ingrese">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Direccion</label>
-                        <input type="text" class="form-control" id="usuarioDireccion"
-                            placeholder="Ingrese">
+                        <label for="exampleFormControlTextarea1" class="form-label">Telefono</label>
+                        <input type="text" class="form-control" id="usuarioCelular" placeholder="Ingrese el telefono">
                     </div>
                     <div class="col-auto">
                         <button type="button" class="btn btn-primary mb-3" onclick="addUsers()">Añadir Usuario</button>
                     </div>
                 </form>
             </div>
-            <div class="col-sm card">
-                <form novalidate>
+            <div class="col-sm card p-4">
+                <form novalidate onsubmit="mySubmitFunction(event)">
                     <h3 class="text-center">Crear Mascota</h3>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Ingrese">
+                        <label for="exampleFormControlInput1" class="form-label">Codigo</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese el codigo">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Ingrese">
+                        <label for="exampleFormControlTextarea1" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese el nombre">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Ingrese">
+                        <label for="exampleFormControlTextarea1" class="form-label">Tipo</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Seleccione una opción</option>
+                            <option value="cat">gato</option>
+                            <option value="dog">perro</option>
+                          </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Ingrese">
+                        <label for="exampleFormControlTextarea1" class="form-label">Genero</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Seleccione una opción</option>
+                            <option value="female">hembra</option>
+                            <option value="male">macho</option>
+                          </select>
                     </div>
                     <div class="col-auto">
                         <button type="submit" class="btn btn-primary mb-3">Añadir Mascota</button>
@@ -78,8 +79,8 @@
 
 
 
-    <button class="btn btn-info mb-3"onclick="getPets()">Get Pets</button>
-    <button class="btn btn-dark mb-3"onclick="getUsers()">Get Users</button>
+    <button class="btn btn-info mb-3" onclick="getPets()">Mostrar Mascotas</button>
+    <button class="btn btn-dark mb-3" onclick="getUsers()">Mostrar Usuarios</button>
 
     <section id="result">
 

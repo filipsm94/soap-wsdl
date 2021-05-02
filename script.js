@@ -4,9 +4,9 @@ const parser = new DOMParser();
 
 function getPets() {
 
-    var raw = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n	<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n	   <soapenv:Header/>\r\n	   <soapenv:Body>\r\n	      <com:getPet/>\r\n	   </soapenv:Body>\r\n	</soapenv:Envelope>";
+    const raw = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n	<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n	   <soapenv:Header/>\r\n	   <soapenv:Body>\r\n	      <com:getPet/>\r\n	   </soapenv:Body>\r\n	</soapenv:Envelope>";
 
-    var requestOptions = {
+    const requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: raw,
@@ -46,11 +46,28 @@ function getPets() {
 
 }
 
+function setPets(e) { 
+    e.preventDefault(); 
+    const raw = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <com:addPet>\r\n         <Pet>\r\n            <code>10</code>\r\n            <name>fiss</name>\r\n            <gender>male</gender>\r\n            <type>1</type>\r\n            <owner>1</owner>\r\n         </Pet>\r\n      </com:addPet>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
+
+    const requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    fetch("http://localhost:8080/SOAPWS/PetsWs", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+}
+
 function getUsers() {
 
-    var raw = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <com:getUsers/>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
+    const raw = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <com:getUsers/>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
 
-    var requestOptions = {
+    const requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: raw,

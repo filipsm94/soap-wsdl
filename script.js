@@ -118,14 +118,12 @@ function addUsers() {
     console.log("adduser");
     var raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.com.co/"> <soapenv:Header/> <soapenv:Body> <ws:adduser>          <user> <code>{0}</code>             <firstName>{1}</firstName> <lastName>{2}</lastName> <mobile>{3}</mobile> <direction>{4}</direction> </user> </ws:adduser> </soapenv:Body> </soapenv:Envelope>';
 
-    console.log(document.getElementById("idCodUser").value);
     var raw1 = raw
     .replace("{0}",document.getElementById("idCodUser").value)
     .replace("{1}",document.getElementById("usuarioNombres").value)
     .replace("{2}",document.getElementById("usuarioApellidos").value)
     .replace("{3}",document.getElementById("usuarioCelular").value)
     .replace("{4}",document.getElementById("usuarioDireccion").value);
-    console.log(raw1);
 
     var requestOptions = {
         method: 'POST',
@@ -138,9 +136,7 @@ function addUsers() {
         .then(response => response.text())
         .then(result => {
             const xml = parser.parseFromString(result, "text/xml");
-            const jsonObject = xmlToJson(xml);
-            const arreglo = jsonObject['S:Envelope']['S:Body']['ns2:getUsersResponse'].return;
-            console.log(arreglo);
+            const jsonObject = xmlToJson(xml);            
             alert('Se agregó usuario');
             
         })

@@ -42,7 +42,6 @@ function getPets() {
             data += ` </tbody></table>`;
             paintData(data);
         })
-        .catch(error => console.log('error', error));
 
 }
 
@@ -55,7 +54,6 @@ function setPets(e) {
     .replace("{2}",document.getElementById("tipoPet").value)
     .replace("{3}",document.getElementById("generoPet").value)
     .replace("{4}",'1');
-    console.log(raw1);
 
     const requestOptions = {
     method: 'POST',
@@ -67,11 +65,9 @@ function setPets(e) {
     fetch("http://localhost:8080/SOAPWS/PetsWs", requestOptions)
     .then(response => response.text())
     .then(result => alert("se añadio la mascota"))
-    .catch(error => console.log('error', error));
 }
 
 function getUsers() {
-    console.log('rrr');
     const raw = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <ws:getUsers/>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
 
     const requestOptions = {
@@ -87,7 +83,6 @@ function getUsers() {
             const xml = parser.parseFromString(result, "text/xml");
             const jsonObject = xmlToJson(xml);
             const arreglo = jsonObject['S:Envelope']['S:Body']['ns2:getUsersResponse'].return;
-            console.log(arreglo);
             let data = `
                 <table class="table table-striped">
                 <thead>
@@ -111,11 +106,9 @@ function getUsers() {
             data += ` </tbody></table>`;
             paintData(data);
         })
-        .catch(error => console.log('error', error));
 }
 
 function addUsers() {
-    console.log("adduser");
     var raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.com.co/"> <soapenv:Header/> <soapenv:Body> <ws:adduser>          <user> <code>{0}</code>             <firstName>{1}</firstName> <lastName>{2}</lastName> <mobile>{3}</mobile> <direction>{4}</direction> </user> </ws:adduser> </soapenv:Body> </soapenv:Envelope>';
 
     var raw1 = raw
@@ -140,7 +133,6 @@ function addUsers() {
             alert('Se agregó usuario');
             
         })
-        .catch(error => console.log('error', error));
 }
 
 function xmlToJson(xml) {

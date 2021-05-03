@@ -4,7 +4,7 @@ const parser = new DOMParser();
 
 function getPets() {
 
-    const raw = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n	<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n	   <soapenv:Header/>\r\n	   <soapenv:Body>\r\n	      <com:getPet/>\r\n	   </soapenv:Body>\r\n	</soapenv:Envelope>";
+    const raw = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <ws:getPet/>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
 
     const requestOptions = {
         method: 'POST',
@@ -48,7 +48,7 @@ function getPets() {
 
 function setPets(e) { 
     e.preventDefault(); 
-    const raw = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <com:addPet>\r\n         <Pet>\r\n            <code>{0}</code>\r\n            <name>{1}</name>\r\n            <gender>{2}</gender>\r\n            <type>{3}</type>\r\n            <owner>{4}</owner>\r\n         </Pet>\r\n      </com:addPet>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
+    const raw = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:com=\"http://ws.com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <com:addPet>\r\n         <Pet>\r\n            <code>{0}</code>\r\n            <name>{1}</name>\r\n            <gender>{2}</gender>\r\n            <type>{3}</type>\r\n            <owner>{4}</owner>\r\n         </Pet>\r\n      </com:addPet>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
     const raw1 = raw
     .replace("{0}",document.getElementById("idCodPet").value)
     .replace("{1}",document.getElementById("namePet").value)
@@ -66,7 +66,7 @@ function setPets(e) {
 
     fetch("http://localhost:8080/SOAPWS/PetsWs", requestOptions)
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => alert("se añadio la mascota"))
     .catch(error => console.log('error', error));
 }
 

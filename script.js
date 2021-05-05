@@ -3,16 +3,13 @@ myHeaders.append("Content-Type", "text/xml");
 const parser = new DOMParser();
 
 function getPets() {
-
     const raw = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <ws:getPet/>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
-
     const requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: raw,
         redirect: 'follow'
     };
-
     fetch("http://localhost:8080/SOAPWS/PetsWs", requestOptions)
         .then(response => response.text())
         .then(result => {
@@ -51,8 +48,8 @@ function setPets(e) {
     const raw1 = raw
     .replace("{0}",document.getElementById("idCodPet").value)
     .replace("{1}",document.getElementById("namePet").value)
-    .replace("{2}",document.getElementById("tipoPet").value)
-    .replace("{3}",document.getElementById("generoPet").value)
+    .replace("{2}",document.getElementById("generoPet").value)
+    .replace("{3}",document.getElementById("tipoPet").value)
     .replace("{4}",'1');
 
     const requestOptions = {
@@ -69,14 +66,12 @@ function setPets(e) {
 
 function getUsers() {
     const raw = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.com.co/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <ws:getUsers/>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>";
-
     const requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: raw,
         redirect: 'follow'
     };
-
     fetch("http://localhost:8080/SOAPWS/UserWs", requestOptions)
         .then(response => response.text())
         .then(result => {
